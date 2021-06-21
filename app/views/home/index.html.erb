@@ -1,0 +1,48 @@
+<main>
+  <section class="py-5 container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h3 class="text-center">Malindo Test</h3>
+
+        <%= form_with url: '/search' do |f| %>
+
+        <div class="form-group">
+          <%= f.label :first_name, "First name:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :first_name, class: "form-control", required: true %>
+          </div>
+        </div><br />
+
+        <div class="form-group">
+          <%= f.label :last_name, "Last name:", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :last_name, class: "form-control", required: true %>
+          </div>
+        </div><br />
+
+        <div class="form-group">
+          <%= f.label :url, "URL", class: "col-md-4 control-label" %>
+          <div class="col-md-8">
+            <%= f.text_field :url, class: "form-control", required: true %>
+          </div>
+        </div><br />
+
+        <%= f.submit "Search", class: "btn btn-default btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="found-emails">
+  <div class="py-5 container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h3 class="text-center">Found Emails</h3>
+        <% @users.each do |user| %>
+        <%= "#{user.email} (#{user.first_name} #{user.last_name})" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
